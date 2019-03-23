@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <title>Form-Vue</title>
+</head>
+<body>
+    <div id="app">
+        <v-app>
+            <v-content>
+                <v-container grid-list-md text-xs-center>
+                    <v-layout row wrap>
+                        <v-flex xs6>
+                            <v-card>
+                                <v-card-title>
+                                    <h1>Form</h1>
+                                </v-card-title>
+                                <v-container>
+                                        <v-layout row wrap align-center justify-center>
+                                                <v-flex xs7>
+                                                    <div>
+                                                        <v-form>
+                                                            <v-text-field v-model="newUser.code" label='Code' mask=""></v-text-field>
+                                                        </v-form>
+                                                    </div>
+                                                </v-flex>
+                                            </v-layout>
+                                            <v-layout row wrap align-center justify-center class="mt-3">
+                                                <v-flex xs7>
+                                                    <div>
+                                                        <v-form>
+                                                            <v-text-field v-model="newUser.name" label='Name'></v-text-field>
+                                                        </v-form>
+                                                    </div>
+                                                </v-flex>
+                                            </v-layout>
+                                            <v-layout row wrap align-center justify-center class="mt-3">
+                                                <v-flex xs7>
+                                                    <div>
+                                                        <v-form>
+                                                            <v-text-field v-model="newUser.lastName" label='Last Name'></v-text-field>
+                                                        </v-form>
+                                                    </div>
+                                                </v-flex>
+                                            </v-layout>
+                                            <v-layout row wrap align-center justify-center class="mt-3">
+                                                <v-flex xs7>
+                                                    <div>
+                                                        <v-form>
+                                                            <v-text-field v-model="newUser.mobile" label='Mobile Number'></v-text-field>
+                                                        </v-form>
+                                                    </div>
+                                                </v-flex>
+                                            </v-layout>
+                                            <v-layout row wrap align-center justify-center class="mt-3">
+                                                <v-flex xs7>
+                                                    <div>
+                                                        <v-form>
+                                                            <v-text-field v-model="newUser.phone" label='Phone Number'></v-text-field>
+                                                        </v-form>
+                                                    </div>
+                                                </v-flex>
+                                            </v-layout>
+                                            <v-layout row wrap align-center justify-center class="mt-3">
+                                                <v-flex xs7>
+                                                    <div>
+                                                        <v-form>
+                                                            <v-text-field v-model="newUser.address" label='Adress'></v-text-field>
+                                                        </v-form>
+                                                    </div>
+                                                </v-flex>
+                                            </v-layout>
+                                            <v-layout row wrap align-center justify-center class="mt-3">
+                                                <v-flex xs7>
+                                                    <div>
+                                                        <v-form>
+                                                            <v-text-field v-model="newUser.country" label='Country'></v-text-field>
+                                                        </v-form>
+                                                    </div>
+                                                </v-flex>
+                                            </v-layout>
+                                            <v-layout row wrap align-center justify-center class="mt-3">
+                                                <v-flex xs7>
+                                                    <div>
+                                                        <v-form>
+                                                            <v-text-field v-model="newUser.state" label='State'></v-text-field>
+                                                        </v-form>
+                                                    </div>
+                                                </v-flex>
+                                            </v-layout>
+                                            <v-layout row wrap align-center justify-center class="mt-3">
+                                                <v-flex xs7>
+                                                    <div>
+                                                        <v-form>
+                                                            <v-text-field v-model="newUser.city" label='City'></v-text-field>
+                                                        </v-form>
+                                                    </div>
+                                                </v-flex>
+                                            </v-layout>
+                                            <v-layout row wrap align-center justify-center class="mt-5">
+                                                <v-flex xs7>
+                                                    <div class="text-xs-center">
+                                                        <v-btn round color="primary" dark @click="addUser(index)">Submit</v-btn>
+                                                    </div>
+                                                </v-flex>
+                                            </v-layout>
+                                </v-container>
+                            </v-card>
+                        </v-flex>
+                        <v-flex xs6>
+                            <v-card>
+                                <v-card>
+                                    <v-card-title>
+                                        <h1>Users</h1>
+                                    </v-card-title>
+                                    <v-container>
+                                        <v-layout>
+                                            <v-flex>
+                                                <div class="mt-3" v-for="(item, index) of users">
+                                                    <v-alert :value="true" color="info" icon="info" outline>
+                                                        <v-layout align-center justify-center row fill-height>
+                                                            <v-flex xs8>
+                                                                {{index}} - {{item.code}} - {{item.name}}
+                                                            </v-flex>
+                                                            <v-flex xs4>
+                                                                <v-btn color="error" dark fab small @click="deleteUser(index)">
+                                                                    <v-icon dark>clear</v-icon>
+                                                                </v-btn>
+                                                            </v-flex>
+                                                        </v-layout>
+                                                    </v-alert>
+                                                </div>
+                                            </v-flex>
+                                        </v-layout>
+                                    </v-container>
+                                </v-card>
+                            </v-card>
+                        </v-flex>
+                    </v-layout>
+                </v-container>
+            </v-content>
+        </v-app>
+    </div>
+
+
+    <!--Vue-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                users: [],
+                newUser: {
+                    code: '',
+                    name: '',
+                    lastName: '',
+                    mobile: '',
+                    phone: '',
+                    address: '',
+                    country: '',
+                    state: '',
+                    city: '',
+                }
+            },
+            methods: {
+                addUser(){
+                    this.users.push({
+                        code: this.newUser.code,
+                        name: this.newUser.name,
+                        lastName: this.newUser.lastName,
+                        mobile: this.newUser.mobile,
+                        phone: this.newUser.phone,
+                        address: this.newUser.address,
+                        country: this.newUser.country,
+                        state: this.newUser.state,
+                        city: this.newUser.city,
+                    })
+                    this.newUser.code = '';
+                    this.newUser.name = '';
+                    this.newUser.lastName = '';
+                    this.newUser.mobile = '';
+                    this.newUser.phone = '';
+                    this.newUser.address = '';
+                    this.newUser.country = '';
+                    this.newUser.state = '';
+                    this.newUser.city = '';
+                    localStorage.setItem('users-vue', JSON.stringify(this.users));
+                },
+                deleteUser(index){
+                    this.users.splice(index, 1);
+                    localStorage.setItem('users-vue', JSON.stringify(this.users));
+                }
+            },
+            created() {
+                let datosBD = JSON.parse(localStorage.getItem('users-vue'));
+                if(datosBD === null){
+                    this.users = [];
+                }else{
+                    this.users = datosBD;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
